@@ -20,7 +20,7 @@ namespace SafraTestBackend.Api.Controllers
         public string Get(string symbol)
         {
             var result = _quotationService.GetQuotationFinanceBySymbol(symbol);
-            return result.ToString();    
+            return result.Result.ToString();  
             
         }
     }

@@ -5,14 +5,20 @@ namespace SafraTestBackend.Domain.Entities
 {
     public class Order : EntityBase
     {
-        //public Order(Guid Id, decimal price, decimal quantity, DateTime date, OrderType orderType, Stocks stocks) : base(Id)
-        //{
-        //    Price = price;
-        //    Quantity = quantity;
-        //    Date = date;
-        //    OrderType = orderType;
-        //    Stocks = stocks;
-        //}
+        public Order()
+        {
+            
+        }
+        public Order(decimal price, decimal quantity, decimal valueService, decimal taxValue, DateTime date, OrderType orderType, Guid stocksId) 
+        {
+            Price = price;
+            Quantity = quantity;
+            ValueService = valueService;
+            TaxService = taxValue;
+            Date = date;
+            OrderType = orderType;
+            StocksId = stocksId;
+        }
 
         public decimal Price { get; set; }
         public decimal Quantity { get; set; }
