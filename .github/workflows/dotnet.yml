@@ -20,13 +20,13 @@ jobs:
       run: dotnet restore ./src/SafraTestBackend.Api/SafraTestBackend.Api.csproj
     
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build ./src/SafraTestBackend.Api/SafraTestBackend.Api.csproj --configuration Release --no-restore
     
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test ./src/SafraTestBackend.Api/SafraTestBackend.Api.csproj --no-restore --verbosity normal
 
     - name: Publish
-      run: dotnet publish -c Release -o '${{ github.workspace }}/out'
+      run: dotnet publish ./src/SafraTestBackend.Api/SafraTestBackend.Api.csproj -c Release -o '${{ github.workspace }}/out'
   
     - name: Zip Package
       run: |
