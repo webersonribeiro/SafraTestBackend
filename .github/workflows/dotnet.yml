@@ -38,8 +38,8 @@ jobs:
       with:
         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        application_name: safra-test-backend
-        environment_name: Safratestbackend-env
+        application_name: safra-backend-test
+        environment_name: Safrabackendtest-env
         region: ${{ secrets.AWS_REGION }}
         version_label: ${{ github.run_id }}
         version_description: ${{ github.sha }}
