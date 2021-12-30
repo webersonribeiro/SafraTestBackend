@@ -36,7 +36,7 @@ deploy_production:
     - aws configure set aws_secret_access_key ${{ env.AWS_SECRET_ACCESS_KEY }}
     - aws configure set aws_access_key_id ${{ env.AWS_ACCESS_KEY_ID }}
     - aws configure set region ${{ env.AWS_REGION }}
-    - aws s3 sync ./site/ s3://${{ env.AWS_S3_BUCKET }}/versao-api
+    - aws s3 sync ./site/ s3://${{ env.AWS_S3_BUCKET }}
     - aws elasticbeanstalk create-application-version --application-name $APPLICATION_NAME --version-label $CI_PIPELINE_ID --description $CI_COMMIT_TIMESTAMP --source-bundle S3Bucket=$AWS_S3_BUCKET,S3Key=versao-api/$CI_PIPELINE_ID.zip
     - aws elasticbeanstalk update-environment --application-name $APPLICATION_NAME --environment-name $ENVIRONMENT_NAME --version-label $CI_PIPELINE_ID
   only:
