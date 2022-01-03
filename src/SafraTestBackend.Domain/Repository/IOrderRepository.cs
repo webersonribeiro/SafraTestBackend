@@ -7,8 +7,8 @@ namespace SafraTestBackend.Domain.Repository
 {
     public interface IOrderRepository
     {
-        Task<Order> GetById(Guid Id);
+        Task<Order> GetByIdAsync(Guid Id);
         Task<Order> RegistryOrderAsync(Order order);
-        Task<IEnumerable<Order>> ListOrdersBySymbolStocks(string symbol);
+        Task<IEnumerable<Order>> ListOrdersBySymbolStocksAsync(string symbol);
     }
 }

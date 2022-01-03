@@ -8,7 +8,8 @@ namespace SafraTestBackend.Domain.Repository
     public interface IStocksRepository
     {
         Task<IEnumerable<Stocks>> GetAllAsync();
-        Task<Stocks> GetById(Guid Id);
+        Task<Stocks> GetByIdAsync(Guid Id);
+        Task<Stocks> GetBySymbolAsync(string symbol);
         Task<Stocks> AddAsync(Stocks stocks);
     }
 }

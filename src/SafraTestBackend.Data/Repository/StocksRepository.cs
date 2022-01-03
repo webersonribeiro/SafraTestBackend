@@ -33,10 +33,17 @@ namespace SafraTestBackend.Data.Repository
                 .ToListAsync();
         }
 
-        public async Task<Stocks> GetById(Guid Id)
+        public async Task<Stocks> GetByIdAsync(Guid Id)
         {
             return await _context.Stocks.AsNoTracking()
                 .Where(x => x.Id == Id)
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task<Stocks> GetBySymbolAsync(string symbol)
+        {
+            return await _context.Stocks.AsNoTracking()
+                .Where(x => x.Symbol == symbol)
                 .FirstOrDefaultAsync();
         }
     }

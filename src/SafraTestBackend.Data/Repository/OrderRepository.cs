@@ -18,7 +18,7 @@ namespace SafraTestBackend.Data.Repository
             _context = context;
         }
 
-        public async Task<Order> GetById(Guid Id)
+        public async Task<Order> GetByIdAsync(Guid Id)
         {
             return await _context.Orders.AsNoTracking()
                 .Include(s => s.Stocks)
@@ -26,7 +26,7 @@ namespace SafraTestBackend.Data.Repository
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<Order>> ListOrdersBySymbolStocks(string symbol)
+        public async Task<IEnumerable<Order>> ListOrdersBySymbolStocksAsync(string symbol)
         {
             return await _context.Orders.AsNoTracking()
                 .Include(s => s.Stocks)

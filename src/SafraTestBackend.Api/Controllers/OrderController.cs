@@ -30,7 +30,7 @@ namespace SafraTestBackend.Api.Controllers
         [HttpGet]
         public async Task<IEnumerable<OrdersDto>> ListOrdersBySymbolStocks(string symbol)
         {
-            return _mapper.Map<IEnumerable<OrdersDto>>(await _orderRepository.ListOrdersBySymbolStocks(symbol));
+            return _mapper.Map<IEnumerable<OrdersDto>>(await _orderRepository.ListOrdersBySymbolStocksAsync(symbol));
         }
 
         [HttpPost]
@@ -38,7 +38,7 @@ namespace SafraTestBackend.Api.Controllers
         {
             if (!ModelState.IsValid) return CustomResponse(ModelState);
             await _orderService.RegistryOrderAsync(_mapper.Map<Order>(ordersDto));
-            return CustomResponse(_mapper.Map<OrdersDto>(await _orderRepository.GetById(ordersDto.Id)));
+            return CustomResponse(_mapper.Map<OrdersDto>(await _orderRepository.GetByIdAsync(ordersDto.Id)));
         }
     }
 }

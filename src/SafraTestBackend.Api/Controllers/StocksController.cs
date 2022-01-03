@@ -38,7 +38,7 @@ namespace SafraTestBackend.Api.Controllers
         {
             if (!ModelState.IsValid) return CustomResponse(ModelState);
             await _stocksService.AddAsync(_mapper.Map<Stocks>(stocksDto));
-            return CustomResponse(stocksDto);
+            return CustomResponse(_mapper.Map<StocksDto>(await _stocksRepository.GetBySymbolAsync(stocksDto.Symbol)));
         }
     }
 }
